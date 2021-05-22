@@ -1,6 +1,6 @@
 # My Folders
-data/datasets
-data/twint
+src/model/data/datasets
+src/model/data/twint
 venv/
 
 # Byte-compiled / optimized / DLL files
