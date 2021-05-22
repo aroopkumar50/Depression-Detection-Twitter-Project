@@ -1,5 +1,6 @@
 # My Folders
 data/datasets
+data/twint
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
