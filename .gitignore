@@ -1,6 +1,7 @@
 # My Folders
 src/model/data
 src/model/.env
+src/model/*.pkl
 venv/
 
 # Byte-compiled / optimized / DLL files
