@@ -2,6 +2,7 @@
 src/model/data
 src/model/.env
 src/model/*.pkl
+src/.vscode
 venv/
 
 # Byte-compiled / optimized / DLL files
