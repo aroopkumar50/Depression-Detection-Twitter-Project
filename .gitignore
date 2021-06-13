@@ -2,7 +2,11 @@
 src/model/data
 src/model/.env
 src/model/*.pkl
+src/model/*.joblib
 src/.vscode
+src/API_deployment
+src/*.pkl
+src/*.joblib
 venv/
 
 # Byte-compiled / optimized / DLL files
