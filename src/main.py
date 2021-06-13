@@ -1,10 +1,13 @@
 # 1. uvicorn main:app --reload
 
-import uvicorn
+from joblib import load
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+
+vectorizer = load("vectorizer.joblib")
+model = load("stack_model.joblib")
 
 app = FastAPI()
 
@@ -28,10 +31,14 @@ async def index(request: Request):
     return templates.TemplateResponse("user_analysis.html", {"request": request})
 
 
-@app.get("/results", response_class=HTMLResponse)
+@app.get("/results_text_analysis", response_class=HTMLResponse)
 async def index(request: Request):
-    return templates.TemplateResponse("user_analysis.html", {"request": request})
+    text = "I am extremely happy"
+    prediction = model.predict(vectorizer.transform([text]))
+
+    return templates.TemplateResponse("text_results.html", {"request": request, "prediction": prediction})
 
 
-if __name__ == "__main__":
-    uvicorn.run(app)
+@app.get("/results_user_analysis", response_class=HTMLResponse)
+async def index(request: Request):
+    return templates.TemplateResponse("user_results.html", {"request": request})
